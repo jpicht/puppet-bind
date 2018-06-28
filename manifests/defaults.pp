@@ -24,6 +24,7 @@ class bind::defaults (
     $isc_bind_keys          = undef,
     $chroot_class           = undef,
     $chroot_dir             = undef,
+    $listen_on              = ['0.0.0.0'],
 ) {
     unless is_bool($supported) {
         fail('Please ensure that the dependencies of the bind module are installed and working correctly')

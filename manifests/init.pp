@@ -4,7 +4,7 @@ class bind (
     $forwarders                           = undef,
     $forward                              = undef,
     $dnssec                               = undef,
-    $listen_on                            = undef,
+    $listen_on                            = $::bind::defaults::listen_on,
     $query_source                         = undef,
     $filter_ipv6                          = undef,
     $version                              = undef,
