@@ -64,6 +64,22 @@ server's upstream resolvers are controlled using `forwarders`, enabling of DNSSe
 using `dnssec`, and the reported version is controlled using `version`. It is unlikely that you will need to define an
 alternate value for `confdir` or `cachedir`.
 
+#### Run bind daemon on specific IP addresses
+
+Restrict bind to local interface.
+
+```
+class { 'bind':
+    forwarders   => [
+        '8.8.8.8',
+        '8.8.4.4',
+    ],
+    listen_on    => ['192.168.0.1'],
+    # only localhost for v6
+    listen_on_v6 => ['::1'],
+}
+```
+
 #### Run bind daemon with chroot
 
 You can setup bind with chroot using the `$chroot` parameter:
