@@ -34,7 +34,13 @@ options {
 <%- end -%>
 	};
 <%- end -%>
-	listen-on-v6 { any; };
+<%- if @listen_on_v6 and @listen_on_v6 != '' -%>
+	listen-on-v6 {
+<%- Array(@listen_on_v6).each do |listen_on_address| -%>
+		<%= listen_on_address %>;
+<%- end -%>
+	};
+<%- end -%>
 <%- if @query_source and @query_source != '' -%>
 	query-source address <%= @query_source %>;
 <%- end -%>
